@@ -56,8 +56,6 @@ param openAiResourceGroupLocation string = trim(aoaiRegionWithBlankSpace)
 param useOpenAiGpt4 bool = contains(AzureOpenAIServiceRegion, 'GPT-4')
 
 param openAiSkuName string = 'S0'
-param openAiGpt4DeploymentName string = 'gpt-4-deploy'
-param openAiGpt432kDeploymentName string = 'gpt-4-32k-deploy'
 param openAiGpt4oDeploymentName string = 'gpt-4o-deploy'
 param openAiApiVersion string = '2023-05-15'
 
@@ -207,8 +205,6 @@ module backend 'core/host/appservice.bicep' = {
       AZURE_OPENAI_SERVICE: openAi.outputs.name
       AZURE_SEARCH_INDEX: searchIndexName
       AZURE_SEARCH_SERVICE: searchService.outputs.name
-      AZURE_OPENAI_GPT_4_DEPLOYMENT: openAiGpt4DeploymentName
-      AZURE_OPENAI_GPT_4_32K_DEPLOYMENT: openAiGpt432kDeploymentName
       AZURE_OPENAI_GPT_4O_DEPLOYMENT: openAiGpt4oDeploymentName
       AZURE_OPENAI_API_VERSION: '2023-05-15'
       AZURE_COSMOSDB_CONTAINER: cosmosDbContainerName
@@ -232,8 +228,6 @@ module openAi 'core/ai/cognitiveservices.bicep' = {
       name: openAiSkuName
     }
     useOpenAiGpt4: useOpenAiGpt4
-    openAiGpt4DeploymentName: openAiGpt4DeploymentName
-    openAiGpt432kDeploymentName: openAiGpt432kDeploymentName
     openAiGpt4oDeploymentName: openAiGpt4oDeploymentName
     publicNetworkAccess: isPrivateNetworkEnabled ? 'Disabled' : 'Enabled'
   }
@@ -700,8 +694,6 @@ output AZURE_RESOURCE_GROUP string = resourceGroup.name
 
 output AZURE_OPENAI_SERVICE string = openAi.outputs.name
 output AZURE_OPENAI_RESOURCE_GROUP string = openAiResourceGroup.name
-output AZURE_OPENAI_GPT_4_DEPLOYMENT string = openAiGpt4DeploymentName
-output AZURE_OPENAI_GPT_4_32K_DEPLOYMENT string = openAiGpt432kDeploymentName
 output AZURE_OPENAI_GPT_4O_DEPLOYMENT string = openAiGpt4oDeploymentName
 output AZURE_OPENAI_API_VERSION string = openAiApiVersion
 output AZURE_OPENAI_RESOURCE_GROUP_LOCATION string = openAiResourceGroupLocation

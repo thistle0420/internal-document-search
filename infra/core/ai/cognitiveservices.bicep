@@ -12,8 +12,6 @@ param sku object = {
 
 param useOpenAiGpt4 bool = true
 param openAiGpt4oDeploymentName string = ''
-param openAiGpt4DeploymentName string = ''
-param openAiGpt432kDeploymentName string = ''
 
 param openAiGpt4oDeployObj object = {
   name: openAiGpt4oDeploymentName
@@ -27,36 +25,9 @@ param openAiGpt4oDeployObj object = {
     capacity: 8
   }
 }
-param openAiGpt4DeployObj object = {
-  name: openAiGpt4DeploymentName
-  model: {
-    format: 'OpenAI'
-    name: 'gpt-4'
-    version: '0613'
-  }
-  sku: {
-    name: 'Standard'
-    capacity: 8
-  }
-}
-
-param openAiGpt432kDeployObj object = {
-  name: openAiGpt432kDeploymentName
-  model: {
-    format: 'OpenAI'
-    name: 'gpt-4-32k'
-    version: '0613'
-  }
-  sku: {
-    name: 'Standard'
-    capacity: 8
-  }
-}
 
 param deployments array = useOpenAiGpt4? [
   openAiGpt4oDeployObj
-  openAiGpt4DeployObj
-  openAiGpt432kDeployObj
 ]: [
 ]
 
