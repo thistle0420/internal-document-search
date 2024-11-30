@@ -11,36 +11,8 @@ param sku object = {
 }
 
 param useOpenAiGpt4 bool = true
-param openAiGpt35TurboDeploymentName string = ''
-param openAiGpt35Turbo16kDeploymentName string = ''
 param openAiGpt4DeploymentName string = ''
 param openAiGpt432kDeploymentName string = ''
-
-param openAiGpt35TurboDeployObj object = {
-  name: openAiGpt35TurboDeploymentName
-  model: {
-    format: 'OpenAI'
-    name: 'gpt-35-turbo'
-    version: '0613'
-  }
-  sku: {
-    name: 'Standard'
-    capacity: 30
-  }
-}
-
-param openAiGpt35Turbo16kDeployObj object = {
-  name: openAiGpt35Turbo16kDeploymentName
-  model: {
-    format: 'OpenAI'
-    name: 'gpt-35-turbo-16k'
-    version: '0613'
-  }
-  sku: {
-    name: 'Standard'
-    capacity: 30
-  }
-}
 
 param openAiGpt4DeployObj object = {
   name: openAiGpt4DeploymentName
