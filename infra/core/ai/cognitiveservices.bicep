@@ -25,7 +25,7 @@ param openAiGpt35TurboDeployObj object = {
   }
   sku: {
     name: 'Standard'
-    capacity: 120
+    capacity: 30
   }
 }
 
@@ -38,7 +38,7 @@ param openAiGpt35Turbo16kDeployObj object = {
   }
   sku: {
     name: 'Standard'
-    capacity: 120
+    capacity: 30
   }
 }
 
@@ -51,7 +51,7 @@ param openAiGpt4DeployObj object = {
   }
   sku: {
     name: 'Standard'
-    capacity: 40
+    capacity: 8
   }
 }
 
@@ -64,7 +64,7 @@ param openAiGpt432kDeployObj object = {
   }
   sku: {
     name: 'Standard'
-    capacity: 40
+    capacity: 8
   }
 }
 
