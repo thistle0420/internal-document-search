@@ -69,13 +69,9 @@ param openAiGpt432kDeployObj object = {
 }
 
 param deployments array = useOpenAiGpt4? [
-  openAiGpt35TurboDeployObj
-  openAiGpt35Turbo16kDeployObj
   openAiGpt4DeployObj
   openAiGpt432kDeployObj
 ]: [
-  openAiGpt35TurboDeployObj
-  openAiGpt35Turbo16kDeployObj
 ]
 
 resource account 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
